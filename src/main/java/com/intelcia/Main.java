@@ -1,5 +1,6 @@
 package com.intelcia;
 
+import com.intelcia.dto.PersonDTO;
 import com.intelcia.model.Child;
 import com.intelcia.model.Employee;
 import com.intelcia.model.Projet;
@@ -13,10 +14,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import static com.intelcia.repo.specs.EmployeeSpecs.isPoor;
-import static com.intelcia.repo.specs.EmployeeSpecs.isWorking;
-import static org.springframework.data.jpa.domain.Specifications.where;
 
 
 /**
@@ -59,6 +56,8 @@ public class Main {
         ProjetRepo projetRepo = ctx.getBean(ProjetRepo.class);
         PersonRepository personRepository  = ctx.getBean(PersonRepository.class);
 
+        List<PersonDTO> list = personRepo.find("emp2");
+        System.out.println(list);
 //        projetRepo.findAll();
 //        System.out.println(employeeRepo.findByNameLike("chef%"));
 //        Date from = new Date();
@@ -70,7 +69,7 @@ public class Main {
 //        Page<Person> page= personRepository.findAll(new PageRequest(0, 5));
 //        Page<Person> page= personRepository.findByName("emp%", new PageRequest(0, 5));
 //        System.out.println(page.getContent());
-       // System.out.println(per.findByName("chef1"));
-        System.out.println(employeeRepo.findAll(where(isPoor()).or(isWorking())));
+//        System.out.println(per.findByName("chef1"));
+//        System.out.println(employeeRepo.findAll(where(isPoor()).or(isWorking())));
     }
 }

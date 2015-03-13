@@ -1,6 +1,7 @@
 package com.intelcia.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Administrateur on 04/03/2015.
@@ -8,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Child {
+public class Child implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

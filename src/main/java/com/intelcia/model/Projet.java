@@ -1,6 +1,7 @@
 package com.intelcia.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  */
 
 @Entity
-public class Projet {
+public class Projet implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

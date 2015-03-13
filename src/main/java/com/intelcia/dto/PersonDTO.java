@@ -1,5 +1,7 @@
 package com.intelcia.dto;
 
+import com.intelcia.model.Child;
+import com.intelcia.model.Person;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.ArrayList;
@@ -17,11 +19,28 @@ public class PersonDTO {
 
     private int age;
 
-    public PersonDTO(int id, String name, String adresse, int age) {
+    public PersonDTO(int id, String name, String adresse, int age, List<Child> children) {
         this.id = id;
         Name = name;
         this.adresse = adresse;
         this.age = age;
+
+        if(children!=null)
+            for(Child child:children) {
+                this.children.add(child.getId());
+            }
+    }
+
+    public PersonDTO(Person p) {
+        this.id = p.getId();
+        Name = p.getName();
+        this.adresse = p.getAddress();
+        this.age = p.getAge();
+        children= new ArrayList<Integer>();
+        if(p.getChildren()!=null)
+            for(Child child:p.getChildren()) {
+                this.children.add(child.getId());
+            }
     }
 
     public int getAge() {

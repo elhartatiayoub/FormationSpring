@@ -62,6 +62,7 @@ public class Employee extends Person {
                 ", age=" + getAge()  +
                 ", entrprise='" + entrprise + '\'' +
                 ", salary=" + salary +
+                ", children=" + getChildren()+
                 '}';
     }
 }
